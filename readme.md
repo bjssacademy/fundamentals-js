@@ -27,6 +27,8 @@ This guide assumes you have completed the previous fundamental guides on HTML an
         - [Dynamic Languages Create Issues](#dynamic-languages-create-issues)
     - [Control Flow](#control-flow)
     - [Loops](#loops)
+    - [Arrays](#arrays)
+        - [Array Iteration](#array-iteration)
     - [Functions](#functions)
         - [In the console](#in-the-console)
     - [Tasks](#tasks)
@@ -82,7 +84,7 @@ JavaScript started as a way to make web pages more interactive. Nowadays JavaScr
 
 ## Learning Javascript
 
-![](img%5CJavascript%20101%20Autosaved0.png)
+![](<img/Javascript 101 Autosaved0.png>)
 
 ### The Console
 
@@ -90,11 +92,11 @@ For the sake of simplicity I'll assume you are using Google Chrome to read this 
 
 First, right click anywhere on the screen and hit Inspect Element, then click on the Console tab. 
 
-![](img%5CJavascript%20101%20Autosaved1.png)
+![](<img/Javascript 101 Autosaved1.png>)
 
 You should see a window that looks like:
 
-![](img%5CJavascript%20101%20Autosaved2.png)
+![](<img/Javascript 101 Autosaved2.png>)
 
 This is a console, otherwise known as a "command line" or "terminal". 
 
@@ -122,22 +124,22 @@ let mySentence = "My word, what a sunny day!"
 
 Even more strange, because this is is JS we don’t actually need to use the var or let keywords at all……
 
-![](img%5CJavascript%20101%20Autosaved3.png)
+![](<img/Javascript 101 Autosaved3.png>)
 
 ### Also, Const!
 
 Const, short for constant, is a variable that is declared and assigned at the same time and cannot be changed.
 
-![](img%5CJavascript%20101%20Autosaved4.png)
+![](<img/Javascript 101 Autosaved4.png>)
 
 Here's a look at things you cannot do with `const` that you can with `var` or `let`:
 
-![](img%5CJavascript%20101%20Autosaved5.png)
+![](<img/Javascript 101 Autosaved5.png>)
 
 
 ### let vs var
 
-![](img%5CJavascript%20101%20Autosaved6.jpg)
+![](<img/Javascript 101 Autosaved6.jpg)
 
 `let` allows you to declare variables that are limited to the scope of a block statement, or expression on which it is used, unlike the `var` keyword, which declares a variable globally, or locally to an entire function regardless of block scope. 
 
@@ -147,22 +149,22 @@ Here's a look at things you cannot do with `const` that you can with `var` or `l
 
 In computer programming, a block or code block or block of code is a lexical structure of source code which is grouped together. Blocks consist of one or more declarations and statements:
 
-![](img%5CJavascript%20101%20Autosaved7.png)
+![](<img/Javascript 101 Autosaved7.png>)
 
 ### Scope
 
 Variables declared in one block are not accessible from another block if they are local. Variables live in block of code. In Javascript they *used to* have ONLY the var keyword.
 
-![](img%5CJavascript%20101%20Autosaved8.png)
+![](<img/Javascript 101 Autosaved8.png>)
 
 However, variables declared in a parent block *are* available in their descendant, or children blocks:
 
-![](img%5CJavascript%20101%20Autosaved9.png)
+![](<img/Javascript 101 Autosaved9.png>)
 
 
 ### Code example
 
-![](img%5CJavascript%20101%20Autosaved10.png)
+![](<img/Javascript 101 Autosaved10.png>)
 
 Using `let` on line 2 means it has created a variable named “y”, but it cannot be seen outside of its code block, or scope. The scope here is defined by the enclosing curly braces.
 
@@ -172,15 +174,15 @@ You can type this into the console for yourself!
 
 However, using VAR we can make a variable global – that is, accessed from anywhere in the code:
 
-![](img%5CJavascript%20101%20Autosaved11.png)
+![](<img/Javascript 101 Autosaved11.png>)
 
 Using `var` on line 2 means it has created another variable named “y”, but it has been "hoisted" outside its code block and is available to both conditions. 
 
-![](img%5CJavascript%20101%20Autosaved12.png)
+![](<img/Javascript 101 Autosaved12.png>)
 
 And it's even available outside of those conditions as it's global:
 
-![](img%5CJavascript%20101%20Autosaved13.png)
+![](<img/Javascript 101 Autosaved13.png>)
 
 #### Generally, you should use this rule
 
@@ -188,7 +190,7 @@ And it's even available outside of those conditions as it's global:
 
 ### Another way of thinking about scope
 
-![](img%5CJavascript%20101%20Autosaved14.png)
+![](<img/Javascript 101 Autosaved14.png>)
 
 To understand scope, let's imagine a set of nesting dolls. Each nesting doll represents a different scope level.
 
@@ -203,13 +205,13 @@ If you have come from a statically-typed language like Go, Java or C#, that we c
 
 This is because Go is a *statically-typed language*. 
 
-![](img%5CJavascript%20101%20Autosaved15.png)
-![](img%5CJavascript%20101%20Autosaved17.png)
+![](<img/Javascript 101 Autosaved15.png>)
+![](<img/Javascript 101 Autosaved17.png>)
 
 Javascript, on the other hand, is a *dynamic language* and will let you change the type, because it only checks when it runs, not when it compiles like Go.
 
-![](img%5CJavascript%20101%20Autosaved16.png)
-![](img%5CJavascript%20101%20Autosaved18.png)
+![](<img/Javascript 101 Autosaved16.png>)
+![](<img/Javascript 101 Autosaved18.png>)
 
 ### Dynamic Languages Create Issues
 
@@ -217,9 +219,9 @@ Let’s take a simple function here that adds two numbers, stored in variables a
 
 The main problem here is that we can change b to “hello” and javascript does not complain, it just treats both params as string and concatenates them together and returns us a string:
 
-![](img%5CJavascript%20101%20Autosaved19.png)
+![](<img/Javascript 101 Autosaved19.png>)
 
-![](img%5CJavascript%20101%20Autosaved20.png)
+![](<img/Javascript 101 Autosaved20.png>)
 
 Imagine you used that return value somewhere else, expecting it to be a number rather than string? You wouldn’t find that out until runtime! The only way to know if you have a problem is to run the program and try it, you get no help from the compiler because there isn’t one!
 
@@ -229,19 +231,19 @@ So you have to be very careful when using JS that you know what you are doing an
 
 As we can see – control flow via `if` statements are almost exactly the same as in many other languages, but the conditional is wrapped in parenthesis `()` and the code to execute for each condition block in scoped by curly braces `{}`.
 
-![](img%5CJavascript%20101%20Autosaved22.png)
+![](<img/Javascript 101 Autosaved22.png>)
 
 In the example below we assign the numbers 10 and 20 to the variables `n1` and `n2` respectively, then evaluate the condition by checking if `n1` is equal to `n2`.
 
 What will it print out?
 
-![](img%5CJavascript%20101%20Autosaved21.png)
+![](<img/Javascript 101 Autosaved21.png>)
 
 ## Loops
 
 Again, very similar to what we have seen before, this is a counting loop:
 
-![](img%5CJavascript%20101%20Autosaved23.png)
+![](<img/Javascript 101 Autosaved23.png>)
 
 JavaScript supports different kinds of loops:
 
@@ -287,7 +289,7 @@ Functions in JS are quite similar to other languages.
 
 To declare a function, you use the keyword `function`, followed by the name of the function so you can call it, and any parameters:
 
-![](img%5CJavascript%20101%20Autosaved24.png)
+![](<img/Javascript 101 Autosaved24.png>)
 
 You’ll notice that unlike other language, JS doesn’t need us to specify the return type. 
 
@@ -299,17 +301,17 @@ This makes things look easy but causes problems using methods – how do we know
 
 Go ahead and type the function into the console and press Enter:
 
-![](img%5CJavascript%20101%20Autosaved25.png)
+![](<img/Javascript 101 Autosaved25.png>)
 
 You’ll notice that it says undefined here, don’t worry about that, it’s because we haven’t called the function! We've written the function, but at no point have we said we want to use it!
 
 Let's go ahead and call the function by using its name, and passing it the required parameter (a string):
 
-![](img%5CJavascript%20101%20Autosaved26.png)
+![](<img/Javascript 101 Autosaved26.png>)
 
 What you’ll notice as you type in the string you want to send, the function is already starting to tell you what it returns!
 
-![](img%5CJavascript%20101%20Autosaved27.png)
+![](<img/Javascript 101 Autosaved27.png>)
 
 And when you finally hit enter, you get back the result in the console. And you can carry on calling this function in the console until you refresh the page – give it a try!
 
@@ -322,7 +324,7 @@ And when you finally hit enter, you get back the result in the console. And you 
 * Open VS Code from this folder (`code .`)
 * From the files shown, you want to use `temp.js`:
 
-![Alt text](img/Picture35.png)
+![Alt text](img/Picture35.png>)
 
 > We’ve written the calling code for you, *there is no need to change any of this*
 
@@ -380,7 +382,7 @@ With double quotes:
 
 ### Example
 
-![](img%5CJavascript%20101%20Autosaved28.png)
+![](<img/Javascript 101 Autosaved28.png>)
 
 Shorthand for, when this button is clicked, run this bit of javascript!
 
@@ -407,18 +409,18 @@ Can you think of some examples where you might use these events?
 
 The DOM represents the structure of an HTML page as a hierarchical tree-like structure, where each element (like a paragraph, heading, button, etc.) is a node in the tree. Each node can have properties and methods associated with it.
 
-![](img%5CJavascript%20101%20Autosaved29.png)
+![](<img/Javascript 101 Autosaved29.png>)
 
 With `document.getElementById`, you can find a specific element in the HTML document by its unique identifier, known as the "id" attribute. The function takes the id of the element you want to access as an argument and returns the corresponding element node.
 
 
-![](img%5CJavascript%20101%20Autosaved30.png)
+![](<img/Javascript 101 Autosaved30.png>)
 
 So here, the result of the `getelementbyid` is that it selects the entire \<p> element, and stores a reference to it (as an object) in the variable `paragraphElement`.
 
 Now we have that reference, we can perform actions, such as changing the inner HTML – the text inside the tags – to whatever we like. For example if we changed it to Goodbye:
 
-![](img%5CJavascript%20101%20Autosaved31.png)
+![](<img/Javascript 101 Autosaved31.png>)
 
 # Objects & Properties
 
@@ -440,12 +442,12 @@ What we've actually done in our previous code when we found an element by using 
 
 We can then use the object and its own *properties* and *methods*:
 
-![](img%5CJavascript%20101%20Autosaved32.png)
+![](<img/Javascript 101 Autosaved32.png>)
 
 So our `paragraphElement` is an *object*, and we change one if its *properties*.
 
 ---
-![](img%5CJavascript%20101%20Autosaved33.gif)
+![](<img/Javascript 101 Autosaved33.gif)
 
 In real life, a car is an object.
 A car has properties like weight and color, and methods like start and stop:
@@ -495,15 +497,15 @@ To print the type of car, we have to use the property `type`, otherwise it will 
 
 We can “chain” things together, if they are an object by acting on their properties without using an intermediate variable. This “dot notation” is used extensively on objects, but for now we’re just explaining it.
 
-![](img%5CJavascript%20101%20Autosaved34.png)
+![](<img/Javascript 101 Autosaved34.png>)
 
 #### Example
 
-![](img%5CJavascript%20101%20Autosaved35.png)
+![](<img/Javascript 101 Autosaved35.png>)
 
 #### Full Code
 
-![](img%5CJavascript%20101%20Autosaved36.png)
+![](<img/Javascript 101 Autosaved36.png>)
 
 https://www.w3schools.com/js/tryit.asp?filename=tryjs_event_onclick1
 
@@ -530,7 +532,7 @@ So if we call the method `car.start()`  the car starts moving, and we call the m
 
 ### Example – Remove() method
 
-![](img%5CJavascript%20101%20Autosaved38.png)
+![](<img/Javascript 101 Autosaved38.png>)
 
 https://www.w3schools.com/jsref/dom_obj_all.asp
 
@@ -570,28 +572,28 @@ In this example, it will show an alert popup dialog with the text “hi!”.
 
 You can include JS anywhere in your file, but you’ll often find it in the `head` tag…but that can cause problems if you don’t know what you are doing. And that’s due to the way the page renders, or how the browser reads the HTML document.
 
-![](img%5CJavascript%20101%20Autosaved39.png)
+![](<img/Javascript 101 Autosaved39.png>)
 
 
 ## A note on rendering
 
 When JavaScript code is included in an HTML file within the \<script> tags, the order of execution follows a *top-to-bottom* approach:
 
-![](img%5CJavascript%20101%20Autosaved40.png)
+![](<img/Javascript 101 Autosaved40.png>)
 
 Understanding this order of execution is important for ensuring that the JavaScript code behaves as intended and interacts correctly with the HTML elements and structure of the page.
 
 Let's see an example (and you can also see and execute the broken code in the file `orderofexecution.html` in the unzipped file):
 
-![](img%5CJavascript%20101%20Autosaved41.png)
+![](<img/Javascript 101 Autosaved41.png>)
 
-![](img%5CJavascript%20101%20Autosaved42.png)
+![](<img/Javascript 101 Autosaved42.png>)
 
 We are trying to execute code on an element that has *not yet been rendered to the screen*. This is becaus eof the *order of execution* reads from top to bottom and executes in that order.
 
 You need the element to be *rendered* before you can *act* on it:
 
-![](img%5CJavascript%20101%20Autosaved43.png)
+![](<img/Javascript 101 Autosaved43.png>)
 
 ### Generally…
 
@@ -647,11 +649,11 @@ JavaScript libraries are a bunch of JavaScript code written by somebody else, an
 
 Here's an example of importing the library "[sweetalert](https://sweetalert.js.org/)"
 
-![](img%5CJavascript%20101%20Autosaved44.png)
+![](<img/Javascript 101 Autosaved44.png>)
 
 You can find the code in `swal.html` to run:
 
-![](img%5CJavascript%20101%20Autosaved45.png)
+![](<img/Javascript 101 Autosaved45.png>)
 
 ### Tips for Using Libraries
 
