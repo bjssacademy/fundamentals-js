@@ -324,7 +324,7 @@ And when you finally hit enter, you get back the result in the console. And you 
 * Open VS Code from this folder (`code .`)
 * From the files shown, you want to use `temp.js`:
 
-![Alt text](img/Picture35.png>)
+![Alt text](img/Picture35.png)
 
 > We’ve written the calling code for you, *there is no need to change any of this*
 
